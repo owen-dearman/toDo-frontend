@@ -1,22 +1,33 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import todoItems from "./todos.json";
+import { todosInterface } from "./todosInterface";
+import { dateFormatter } from "./dateFormatter";
 
-function CreateToDo(): JSX.Element {
+interface CreateToDoInterface {
+  setData: (arg: todosInterface[]) => void;
+}
+
+function CreateToDo(props: CreateToDoInterface): JSX.Element {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
+  let idCount = 5;
 
   const handleSubmit = () => {
-    const currentDate = new Date();
+    const dateToday = dateFormatter(new Date());
+    const dateEnd = dateFormatter(dueDate);
+    idCount++;
     const toDoItem = {
+      id: idCount,
       title: title,
       details: details,
-      createdDate: currentDate,
-      dueDate: dueDate,
+      createdDate: dateToday,
+      dueDate: dateEnd,
       completed: false,
     };
-    console.log(toDoItem);
+    props.setData([...todoItems, toDoItem]);
     clearInputs();
   };
 

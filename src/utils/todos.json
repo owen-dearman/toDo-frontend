@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Do Laundry",
+    "details": "Synthetic wash on 60deg; spin cycle 10mins; put outside if weather is nice",
+    "createdDate": "30/03/2022",
+    "dueDate": "02/04/2022",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "wash the car",
+    "details": "do it urself not at asda!",
+    "createdDate": "28/03/2022",
+    "dueDate": "10/04/2022",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "buy more batteries",
+    "details": "Wendy says we need AA and 4 volt",
+    "createdDate": "10/02/2022",
+    "dueDate": "29/04/2022",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "book a dentist appointment",
+    "details": "",
+    "createdDate": "30/02/2022",
+    "dueDate": "30/04/2022",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "have a break",
+    "details": "maybe go sleep",
+    "createdDate": "30/03/2022",
+    "dueDate": "30/03/2022",
+    "completed": false
+  }
+]
