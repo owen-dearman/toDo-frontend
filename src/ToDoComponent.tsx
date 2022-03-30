@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CreateToDo from "./utils/CreateToDo";
 
 function ToDoCompoment(): JSX.Element {
   const [searchInput, setSearchInput] = useState<string>("");
@@ -6,6 +7,9 @@ function ToDoCompoment(): JSX.Element {
     <div>
       <h1>To-Do List</h1>
       <h3>Create, complete and delete items from your to-do list!</h3>
+      <h2>Create a To-Do Item!</h2>
+      <CreateToDo />
+      <h2>To-Do!</h2>
       <input
         placeholder="Search Items"
         value={searchInput}
@@ -14,7 +18,6 @@ function ToDoCompoment(): JSX.Element {
           console.log(`input value: ${e.target.value}`);
         }}
       />
-      <h2>To-Do!</h2>
       {/* To-Do List items */}
       <h3>
         These items are modified in conjunction with rest API toDo-backend.git
