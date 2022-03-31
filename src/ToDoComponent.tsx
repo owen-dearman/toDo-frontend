@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateToDo from "./utils/CreateToDo";
-import todoItems from "./utils/todos.json";
+//import todoItems from "./utils/todos.json";
 import ToDoList from "./utils/ToDoList";
 import { todosInterface } from "./utils/todosInterface";
 
 function ToDoCompoment(): JSX.Element {
   const [searchInput, setSearchInput] = useState<string>("");
-  const [data, setData] = useState<todosInterface[]>(todoItems);
+  const [data, setData] = useState<todosInterface[]>([]);
+
+  useEffect(() => {
+    const url = `https://todolistowen.herokuapp.com/items`;
+    const fetchData = async () => {
+      const response = await fetch(url);
+      const jsonBody: todosInterface[] = await response.json();
+      setData(jsonBody);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>

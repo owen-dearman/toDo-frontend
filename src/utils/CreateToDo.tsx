@@ -1,9 +1,10 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
-import todoItems from "./todos.json";
+//import todoItems from "./todos.json";
 import { todosInterface } from "./todosInterface";
 import { dateFormatter } from "./dateFormatter";
+import axios from "axios";
 
 interface CreateToDoInterface {
   setData: (arg: todosInterface[]) => void;
@@ -13,7 +14,7 @@ function CreateToDo(props: CreateToDoInterface): JSX.Element {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
-  let idCount = 5;
+  let idCount = 0;
 
   const handleSubmit = () => {
     const dateToday = dateFormatter(new Date());
@@ -27,7 +28,7 @@ function CreateToDo(props: CreateToDoInterface): JSX.Element {
       dueDate: dateEnd,
       completed: false,
     };
-    props.setData([...todoItems, toDoItem]);
+    axios.post("https://todolistowen.herokuapp.com/items", toDoItem);
     clearInputs();
   };
 
