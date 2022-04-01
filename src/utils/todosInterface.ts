@@ -7,7 +7,6 @@ export interface todosInterface {
   completed: boolean;
 }
 
-
 export interface todosInterfaceNoID {
   title: string;
   details: string;

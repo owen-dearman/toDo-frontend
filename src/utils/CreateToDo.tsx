@@ -1,7 +1,7 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
-import { todosInterface, todosInterfaceNoID } from "./todosInterface";
+import { todosInterfaceNoID } from "./todosInterface";
 import { dateFormatter } from "./dateFormatter";
 import axios from "axios";
 
@@ -14,9 +14,9 @@ function CreateToDo(): JSX.Element {
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
 
-    const postToApi = async(toDoItem: todosInterfaceNoID) =>{
-        axios.post("http://localhost:4000/items", toDoItem);
-    }
+  const postToApi = async (toDoItem: todosInterfaceNoID) => {
+    axios.post("http://localhost:4000/items", toDoItem);
+  };
 
   const handleSubmit = () => {
     const dateToday = dateFormatter(new Date());
@@ -28,7 +28,7 @@ function CreateToDo(): JSX.Element {
       dueDate: dateEnd,
       completed: false,
     };
-    postToApi(toDoItem)
+    postToApi(toDoItem);
     clearInputs();
   };
 
