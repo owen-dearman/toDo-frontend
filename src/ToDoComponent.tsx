@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import CreateToDo from "./utils/CreateToDo";
 //import todoItems from "./utils/todos.json";
-import ToDoList from "./utils/ToDoList";
+import IncompleteToDo from "./utils/IncompleteToDo";
+import CompleteToDo from "./utils/CompleteToDo";
 import { todosInterface } from "./utils/todosInterface";
 
 function ToDoCompoment(): JSX.Element {
@@ -33,7 +34,10 @@ function ToDoCompoment(): JSX.Element {
           console.log(`input value: ${e.target.value}`);
         }}
       />
-      <ToDoList data={data} />
+      <h2>Incomplete Items</h2>
+      <IncompleteToDo data={data} />
+      <h2>Complete Items</h2>
+      <CompleteToDo data={data} />
       <h3>
         These items are modified in conjunction with rest API toDo-backend.git
       </h3>

@@ -5,7 +5,7 @@ interface ToDoList_Interface {
   data: todosInterface[];
 }
 
-function ToDoList(props: ToDoList_Interface): JSX.Element {
+function IncompleteToDo(props: ToDoList_Interface): JSX.Element {
   async function handleComplete(item: todosInterface) {
     await axios.patch(`http://localhost:4000/items/${item.id}`, {
       completed: true,
@@ -32,4 +32,4 @@ function ToDoList(props: ToDoList_Interface): JSX.Element {
   return <div>{mapOfToDoList}</div>;
 }
 
-export default ToDoList;
+export default IncompleteToDo;
