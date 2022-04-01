@@ -9,21 +9,21 @@ function ToDoCompoment(): JSX.Element {
   const [data, setData] = useState<todosInterface[]>([]);
 
   useEffect(() => {
-    const url = `https://todolistowen.herokuapp.com/items`;
+    const url = "http://localhost:4000/items";
     const fetchData = async () => {
       const response = await fetch(url);
       const jsonBody: todosInterface[] = await response.json();
       setData(jsonBody);
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <div>
       <h1>To-Do List</h1>
       <h3>Create, complete and delete items from your to-do list!</h3>
       <h2>Create a To-Do Item!</h2>
-      <CreateToDo setData={setData} />
+      <CreateToDo />
       <h2>To-Do!</h2>
       <input
         placeholder="Search Items"
